@@ -22,14 +22,22 @@ let rover = {
 function turnLeft(rover){
     switch(rover.direction){
         case "N":
-            return rover.direction = "L";
+            return rover.direction = "W";
+            //+1 to the left
+            break;
+
+        case "W":
+            return rover.direction = "S";
             //+1 to the left 
             break;
-        case "R":
-            return rover.direction = "L";
-            //+1 to the left 
+
+        case "S":
+            return rover.direction = "E";
+            //+1 to the left
             break;
-        case "L":
+
+        case "E":
+            return rover.direction = "N"
             //+1 to the left
             break;
     }
@@ -38,21 +46,25 @@ function turnLeft(rover){
 function turnRight(rover){
     switch(rover.direction){
         case "N":
-            return rover.direction = "R";
+            return rover.direction = "E";
+            //+1 to the right
+            break;  
+
+        case "E":
+            return rover.direction ="S";
             //+1 to the right
             break;
 
+        case "S":
+            return rover.direction = "W";
+            //+1 to the right
+            break;
             
-        case "L":
-            return rover.direction = "R";
+        case "W":
+            return rover.direction = "N";
             //+1 to the right
-            break;
+            break;        
                 
-        case "R":
-            //+1 to the right
-            break;
-    }
-;}
+                };}
 
-turnRight(rover);
-console.log(rover.direction);
+
