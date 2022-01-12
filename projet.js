@@ -15,8 +15,8 @@ console.table(grid);
 
 let rover = {
     direction : "N",
-    x : 0,
-    y : 0
+    y : grid[0],
+    x : grid[0][0]
 };
 
 function turnLeft(rover){
@@ -63,8 +63,55 @@ function turnRight(rover){
         case "W":
             return rover.direction = "N";
             //+1 to the right
-            break;        
-                
-                };}
+            break;
+    }
+;}
 
+function moveForward(rover) {
+    switch (rover.direction) {
+        case rover.direction = "N":
+            if (rover.y === 0) {
+                return rover.x , rover.y;
+            }
+            else {
+                rover.y--;
+                return rover.x , rover.y;
+            }
+            
+            break;
 
+        case rover.direction = "S":
+            if (rover.y === 9) {
+                return rover.x , rover.y;
+            }
+            else {
+                rover.y++;
+                return rover.x , rover.y;
+            }
+            
+            break;
+
+        case rover.direction = "W":
+            if (rover.x === 0) {
+                return rover.x , rover.y;
+            }
+            else {
+                rover.x--;
+                return rover.x , rover.y;
+            }
+            break;
+
+        case rover.direction = "E":
+            if (rover.x === 0) {
+                return rover.x , rover.y;
+            }
+            else {
+                rover.x++;
+                return rover.x , rover.y;
+            }
+            
+            break;
+    }
+};
+
+console.log(moveForward(rover));
