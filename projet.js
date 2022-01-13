@@ -1,6 +1,6 @@
 const grid = [
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-	[" ", " ", " ", " ", " n", " ", " ", " ", " ", " "],
+	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
@@ -11,14 +11,14 @@ const grid = [
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 ];
 
-console.table(grid);
 
 let rover = {
-    direction : "N",
-    y : grid[1],
-    x : grid[1][4]
+    direction : "S",
+    y : 0,
+    x : 1
 };
 
+grid[rover.y][rover.x] = rover.direction;
 
 function turnLeft(rover){
     switch(rover.direction){
@@ -69,57 +69,36 @@ function turnRight(rover){
 ;}
 
 
-function moveForward(rover) {
-    switch (rover.direction) {
-
-        case "N":
-            if (rover.y === 0 ){
-                console.log ('Message: error');
+function moveForward (rover){
+    switch(rover.direction){
+        case "N": 
+            if (rover.y === 0){
+                console.log("error");
             }
-            else {
-                console.log("cv");
-                rover.y = -1;
-            }
+            else{
+                grid[rover.y][rover.x] = " ";
+                rover.y -= 1;
+                grid[rover.y][rover.x] = "N";
+                console.table(grid);
             break;
+            }
 
-        case "S":
-            if (rover.y === 9) {
-                console.log ('Message: error');
-                console.log (`${rover.x},${rover.y}`);
+            case "S": 
+            if (rover.y === 9){
+                console.log("error");
             }
-            else {
-                rover.y++;
-                console.log (`${rover.x},${rover.y}`);
-            }
-            
+            else{
+                grid[rover.y][rover.x] = " ";
+                rover.y += 1;
+                grid[rover.y][rover.x] = "S";
+                console.table(grid);
             break;
-
-        case "W":
-            if (rover.x === 0) {
-                console.log ('Message: error');
-                console.log (`${rover.x},${rover.y}`);
             }
-            else {
-                rover.x--;
-                console.log (`${rover.x},${rover.y}`);
-            }
-            
-            break;
-
-        case "E":
-            if (rover.x === 9 ) {
-                console.log ('Message: error');
-                console.log (`${rover.x},${rover.y}`);
-            }
-            else {
-                rover.x++;
-                console.log (`${rover.x},${rover.y}`);
-            }
-            
-            break;
     }
-};
+}
 
-console.log(rover.y);
+console.table(grid);
 moveForward(rover);
-console.log(rover.y);
+moveForward(rover);
+moveForward(rover);
+moveForward(rover);
