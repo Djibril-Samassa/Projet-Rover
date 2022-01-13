@@ -13,9 +13,9 @@ const grid = [
 
 
 let rover = {
-    direction : "S",
-    y : 0,
-    x : 1
+    direction : "E",
+    y : 2,
+    x : 2
 };
 
 grid[rover.y][rover.x] = rover.direction;
@@ -71,34 +71,89 @@ function turnRight(rover){
 
 function moveForward (rover){
     switch(rover.direction){
+
+        //move to the north
         case "N": 
+            //check i you can go higher
             if (rover.y === 0){
                 console.log("error");
             }
+            //go higher and display "N"
             else{
                 grid[rover.y][rover.x] = " ";
                 rover.y -= 1;
                 grid[rover.y][rover.x] = "N";
                 console.table(grid);
-            break;
             }
-
-            case "S": 
+            break;
+        
+        //move to the south
+        case "S": 
+            // check if you can go lower
             if (rover.y === 9){
                 console.log("error");
             }
+            //go lower and display "S"
             else{
                 grid[rover.y][rover.x] = " ";
                 rover.y += 1;
                 grid[rover.y][rover.x] = "S";
                 console.table(grid);
-            break;
             }
+            break;
+
+        //move to the left    
+        case "W":
+            //check if you can go to the left
+            if (rover.x === 0){
+                console.log("error");
+            }
+            //go to the left and display "W"
+            else{
+                grid[rover.y][rover.x] = " ";
+                rover.x -= 1;
+                grid[rover.y][rover.x] = "W";
+                console.table(grid);
+            }
+            break;
+
+        case "E":
+            //check if you can go to the right
+            if (rover.x === 9){
+                console.log("error");
+            }
+            //go to the left and display "E"
+            else{
+                grid[rover.y][rover.x] = " ";
+                rover.x += 1;
+                grid[rover.y][rover.x] = "E";
+                console.table(grid);
+            }
+            break;
     }
 }
 
-console.table(grid);
-moveForward(rover);
-moveForward(rover);
-moveForward(rover);
-moveForward(rover);
+function piloteRover(string){
+    while(true){
+        if(string = "f"){
+            return moveForward(rover);
+        }
+
+        else if(string = "l"){
+            return turnLeft(rover);
+        }
+
+        else if(string = "r"){
+            return turnRight(rover);
+        }
+    }
+;}
+
+
+piloteRover("f");
+piloteRover("f");
+piloteRover("r");
+piloteRover("f");
+piloteRover("l");
+piloteRover("f");
+piloteRover("f");
