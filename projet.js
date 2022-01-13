@@ -1,6 +1,6 @@
 const grid = [
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+	[" ", " ", " ", " ", " n", " ", " ", " ", " ", " "],
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
@@ -71,21 +71,19 @@ function turnRight(rover){
 
 function moveForward(rover) {
     switch (rover.direction) {
+
         case "N":
-                
-            if (rover.y <= 0 ) {
+            if (rover.y === 0 ){
                 console.log ('Message: error');
-                console.log (`${rover.x},${rover.y}`);
             }
-            else  {
-                rover.y--;
-                console.log (`${rover.x},${rover.y}`);
-                }
-            
+            else {
+                console.log("cv");
+                rover.y = -1;
+            }
             break;
 
         case "S":
-            if (rover.y >= 9) {
+            if (rover.y === 9) {
                 console.log ('Message: error');
                 console.log (`${rover.x},${rover.y}`);
             }
@@ -97,7 +95,7 @@ function moveForward(rover) {
             break;
 
         case "W":
-            if (rover.x <= 0) {
+            if (rover.x === 0) {
                 console.log ('Message: error');
                 console.log (`${rover.x},${rover.y}`);
             }
@@ -108,8 +106,8 @@ function moveForward(rover) {
             
             break;
 
-        case  "E":
-            if (rover.x >= 9) {
+        case "E":
+            if (rover.x === 9 ) {
                 console.log ('Message: error');
                 console.log (`${rover.x},${rover.y}`);
             }
@@ -122,4 +120,6 @@ function moveForward(rover) {
     }
 };
 
-console.table(grid);
+console.log(rover.y);
+moveForward(rover);
+console.log(rover.y);
