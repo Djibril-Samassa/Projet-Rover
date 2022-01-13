@@ -15,30 +15,31 @@ console.table(grid);
 
 let rover = {
     direction : "N",
-    y : grid[0],
-    x : grid[0][0]
+    y : grid[1],
+    x : grid[1][4]
 };
+
 
 function turnLeft(rover){
     switch(rover.direction){
         case "N":
             return rover.direction = "W";
-            //+1 to the left
+            // North to West
             break;
 
         case "W":
             return rover.direction = "S";
-            //+1 to the left 
+            //West to South
             break;
 
         case "S":
             return rover.direction = "E";
-            //+1 to the left
+            //South to East
             break;
 
         case "E":
             return rover.direction = "N"
-            //+1 to the left
+            //East to North
             break;
     }
 ;}
@@ -47,71 +48,45 @@ function turnRight(rover){
     switch(rover.direction){
         case "N":
             return rover.direction = "E";
-            //+1 to the right
+            //North to East
             break;  
 
         case "E":
             return rover.direction ="S";
-            //+1 to the right
+            //East to South
             break;
 
         case "S":
             return rover.direction = "W";
-            //+1 to the right
+            //South to West
             break;
             
         case "W":
             return rover.direction = "N";
-            //+1 to the right
+            //West to North
             break;
     }
 ;}
 
-function moveForward(rover) {
-    switch (rover.direction) {
+
+function moveForward(rover){
+    switch(rover.direction){
         case rover.direction = "N":
-            if (rover.y === 0) {
-                return rover.x , rover.y;
+                
+            if (rover.y <= 0) {
+                console.log ('Message: error');
+                return rover.y;
             }
-            else {
-                rover.y--;
-                return rover.x , rover.y;
-            }
-            
-            break;
-
-        case rover.direction = "S":
-            if (rover.y === 9) {
-                return rover.x , rover.y;
-            }
-            else {
-                rover.y++;
-                return rover.x , rover.y;
-            }
-            
-            break;
-
-        case rover.direction = "W":
-            if (rover.x === 0) {
-                return rover.x , rover.y;
-            }
-            else {
-                rover.x--;
-                return rover.x , rover.y;
-            }
-            break;
-
-        case rover.direction = "E":
-            if (rover.x === 0) {
-                return rover.x , rover.y;
-            }
-            else {
-                rover.x++;
-                return rover.x , rover.y;
-            }
-            
+            else  {
+                rover.y = "N";
+                return rover.y--;
+                }        
             break;
     }
-};
+    console.table(grid);    
+}
 
-console.log(moveForward(rover));
+
+
+moveForward(rover)
+console.table(grid);
