@@ -69,24 +69,57 @@ function turnRight(rover){
 ;}
 
 
-function moveForward(rover){
-    switch(rover.direction){
-        case rover.direction = "N":
+function moveForward(rover) {
+    switch (rover.direction) {
+        case "N":
                 
-            if (rover.y <= 0) {
+            if (rover.y <= 0 ) {
                 console.log ('Message: error');
-                return rover.y;
+                console.log (`${rover.x},${rover.y}`);
             }
             else  {
-                rover.y = "N";
-                return rover.y--;
-                }        
+                rover.y--;
+                console.log (`${rover.x},${rover.y}`);
+                }
+            
+            break;
+
+        case "S":
+            if (rover.y >= 9) {
+                console.log ('Message: error');
+                console.log (`${rover.x},${rover.y}`);
+            }
+            else {
+                rover.y++;
+                console.log (`${rover.x},${rover.y}`);
+            }
+            
+            break;
+
+        case "W":
+            if (rover.x <= 0) {
+                console.log ('Message: error');
+                console.log (`${rover.x},${rover.y}`);
+            }
+            else {
+                rover.x--;
+                console.log (`${rover.x},${rover.y}`);
+            }
+            
+            break;
+
+        case  "E":
+            if (rover.x >= 9) {
+                console.log ('Message: error');
+                console.log (`${rover.x},${rover.y}`);
+            }
+            else {
+                rover.x++;
+                console.log (`${rover.x},${rover.y}`);
+            }
+            
             break;
     }
-    console.table(grid);    
-}
+};
 
-
-
-moveForward(rover)
 console.table(grid);
